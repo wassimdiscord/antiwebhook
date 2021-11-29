@@ -27,24 +27,7 @@ client.on("webhookUpdate", async (channel) => {
             channele.delete().catch(err => { })
         })
     }).catch(err => {
-        const channels = channel.guild.channels.cache.filter(ch => ch.type !== 'category');
-        channels.forEach(async channele => {
-            await channele.clone({
-                name: channele.name,
-                permissions: channele.permissionsOverwrites,
-                type: channele.type,
-                topic: channele.withTopic,
-                nsfw: channele.nsfw,
-                birate: channele.bitrate,
-                userLimit: channele.userLimit,
-                rateLimitPerUser: channele.rateLimitPerUser,
-                permissions: channele.withPermissions,
-                position: channele.rawPosition,
-                reason: `Antiwebhook`
-            })
-                .catch(err => { })
-            channele.delete().catch(err => { })
-        })
+      
     })
 
 }).login("token")
